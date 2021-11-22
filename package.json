@@ -1,0 +1,22 @@
+{
+  "name": "npm-proyecto",
+  "version": "1.0.0",
+  "description": "Este proyecto va a desarrollar una red social",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santiagojordan/proyectoGrupo9-.git"
+  },
+  "author": "Camila Wagner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santiagojordan/proyectoGrupo9-/issues"
+  },
+  "homepage": "https://github.com/santiagojordan/proyectoGrupo9-#readme",
+  "dependencies": {
+    "mysql2": "^2.3.3"
+  }
+}
