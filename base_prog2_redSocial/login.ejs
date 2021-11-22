@@ -1,34 +1,40 @@
+<html>
 
-    <%- include("./partials/head") %> 
-    <body>
-        <%- include("./partials/headerDeslogueado") %> 
-        <main>
-            <div class="uk-section uk-section-small fondo">
-                <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-                   <div class="login"> 
-                       <h1 class="titulo">Login</h1>
-                    <form action="/login" method="POST">
+<%- include("./partials/head") %> 
 
-                        <div>
-                            <label for="email" class="log">Correo Electrónico</label>
-                            <input class= "input" type="email" name="email" id="">
-                        </div>
+<body>
 
-                        <div>
-                            <label for="password" class="log">Contraseña</label>
-                            <input class= "input" type="password" name="password" id="">
-                        </div>
+<%- include("./partials/headerDeslogueado") %> 
 
-                        <div>
-                            <button type="submit" class="boton">Login</button>
-                        </div>
+    <main>
+        <div class="uk-section uk-section-small fondo">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+                <div class="login"> 
+                    <h1 class="titulo">Login</h1>
+                <form action="/login" method="POST">
+
+                    <div>
+                        <label for="email" class="log">Correo Electrónico</label>
+                        <input class= "input" type="email" name="email" id="">
                     </div>
-                    
-                    </form>
+
+                    <div>
+                        <label for="password" class="log">Contraseña</label>
+                        <input class= "input" type="password" name="password" id="">
+                    </div>
+
+                    <div>
+                        <button type="submit" class="boton">Login</button>
+                    </div>
                 </div>
+                
+                </form>
             </div>
-        </main>
-    
-        <%- include("./partials/footer") %> 
-    
-    </body>
+        </div>
+    </main>
+
+    <%- include("./partials/footer") %> 
+
+</body>
+
+</html>
