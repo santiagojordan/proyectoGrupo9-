@@ -1,112 +1,89 @@
-const db = require('../database/models');
-const registracion = db.Register;
-const Op = db.Sequelize.Op;
-const bcrypt = require('bcryptjs');
+const posteo = require('../module/posteo');
+const users = require('../module/users');
+let db = require('../database/models');
+let bcrypt = require('bcryptjs');
 
+// registracion
 
 const registracionController = {
-    index: function (req, res) {
-        res.render ('registracion', {error: null})
-    },
+	registracion: function (req, res) {
+		res.render('registracion')
+	},
+	registrar: function (req, res) {
+	 req.body.password = bcrypt.hashSync(req.body.password)
+		const usuarioCreado ={ 
+			nombre: req.body.nombre,
+			apellido: req.body.apellido,
+			username: req.body.username,
+			email: req.body.email ,
+			password: req.body.password ,
+			fecha: req.body.fecha,
+		} 
+		db.usuario.create (usuarioCreado)
+		.then (function (usuario){
+			return res.redirect ("/users/login")
+		}
+			)
+			.catch(err => {
+				console.log(err);
+				res.send(err) })
+   
+	},
+	//la parte del login etcetera
+	login: function (req, res) {
+		if (req.session.user == undefined) {
+			res.render('login')
+		} else {
+			res.redirect("/")
+		}
+	},
+	FuncionLogueo: function (req, res) {
 
-    store: function(req, res){
-        res.send(req.file)
-    },
+		let errors = {};
 
-    createUser: (req, res) => {
-        if (
-            req.body.nombre !="" &&
-            req.body.apellido !="" &&
-            req.body.email !="" &&
-            req.body.fecha !="" &&
-            req.body.usuario !="" &&
-            req.body.passwords !="" 
-            ) {
-            if (req.body.passwords.length >= 4) {
-                if (req.body.passwords == req.body.confirContra) {
-                    if (req.file) {
-                        
-                        db.User.findOne({
-                                where: {
-                                    username: req.body.usuario
-                                }
-                            })
-                            .then(resultado => {
-                                if (!resultado) {
-                                    db.User.create({
-                                        nombre: req.body.nombre,
-                                        apellido: req.body.apellido,
-                                        username: req.body.usuario,
-                                        email: req.body.email,
-                                        passwords: bcrypt.hashSync(req.body.passwords, 10),
-                                        picture: req.file.filename,
-                                        fecha: req.body.fecha,
-                                        
-                                    }).then(user => {
-                                        req.session.usuario = user
+		if (req.body.email == "") {
+			errors.message = "El campo del email no puede estar vacio";
+			res.locals.error = errors;
+			res.render("login")
+		} else {
+			db.usuario.findOne({
+					where: {
+						email: req.body.email
+					}
+				})
+				.then(function (user) {
+					if (user != undefined) {
+						let passCorrecta = bcrypt.compareSync(req.body.password, user.password)
+						if (passCorrecta == true) {
+							req.session.user = user;
+							if (req.body.remind) {
+								res.cookie("id_usuario", users.id, {
+									maxAge: 1000 * 60 * 30
+								})
+							}
+							return res.redirect("/")
+						} else {
+							errors.message = "No se acepta esta contraseña";
+							res.locals.error = errors;
+							res.render("login");
+						}
+					} else {
+						errors.message = "No hay un usuario con este mail";
+						res.locals.error = errors;
+						res.render("login");
+					}
+				})
+				.catch(err => {
+					console.log(err);
+					res.send(err)
+				})
+		}
+	},
+	logout: function (req, res) {
+		req.session.destroy();
+		res.clearCookie("id_usuario");
+		res.redirect("/user/login");
+	}
+}
 
-                                        res.cookie('userId', user.id, {
-                                            maxAge: 1000 * 60 * 5
-                                        });
-
-                                        res.redirect('/');
-                                    });
-                                } else {
-                                    res.render('registracion', {
-                                        error: 'Ya existe este nombre de usuario'
-                                    })
-                                }
-                            })
-
-                    } else {
-
-                        
-                        db.User.findOne({
-                                where: {
-                                    username: req.body.usuario
-                                }
-                            })
-                            .then(resultado => {
-                                if (!resultado) {
-                                    db.User.create({
-                                        name: req.body.nombre,
-                                        last_name: req.body.apellido,
-                                        email: req.body.email,
-                                        nacimiento: req.body.fecha,
-                                        username: req.body.usuario,
-                                        cover: "../public/images/fUsuario/fhombre.jpg",
-                                        passwords: bcrypt.hashSync(req.body.passwords, 10),
-                                    }).then(user => {
-                                        req.session.usuario = user
-                                        res.cookie('userId', user.id, {
-                                            maxAge: 1000 * 60 * 5
-                                        });
-
-                                        res.redirect('/index');
-                                    });
-                                } else {
-                                    res.render('registracion', {
-                                        error: 'Nombre de usuario existente, elija otro por favor'
-                                    })
-                                }
-                            })
-                    }
-                } else {
-                    res.render('registracion', {
-                        error: 'Sus contraseñas no coinciden'
-                    })
-                }
-            } else {
-                res.render('registracion', {
-                    error: 'La contraseña debe contener mas de tres caracteres'
-                })
-            }
-        } else {
-            res.render('registracion', {
-                error: 'Ningun campo puede quedar vacio'
-            })
-        }
-    }
-};
-
-module.exports = registracionController
+module.exports = registracionController;

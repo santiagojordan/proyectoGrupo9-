@@ -1,11 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const controller = require('../controllers/loginController');
+var usersController = require('../controllers/usersController');
+var registracionController = require('../controllers/registracionController');
 
 
-router.get('/index', controller.index);
-router.post('/index', controller.login);
-router.post('/logout', controller.logout);
+router.get('/login', usersController.mostrarLogin);
+router.post('/login', usersController.autenticarUsuario)
+router.get('/logout', usersController.logout)
+
 
 
 
