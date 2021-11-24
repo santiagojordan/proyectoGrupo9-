@@ -17,7 +17,7 @@
                     <article class="post uk-card-default uk-flex uk-flex-column">
                         <div class="info-usuario uk-flex ">
                             <div class="fotoPerfil">
-                                <img src="/images/fUsuario/ <%= posts[i].Usuario.fotoPerfil %> " alt="">
+                                <img src="/public/images/fUsuario/ <%= posts[i].Usuario.fotoPerfil %> " alt="">
                             </div>
 
                             <h4><a href="/detalleUsuario"><%= posts[i].Usuario.nombre %></a></h4>
@@ -40,8 +40,8 @@
                             </ul>
 
                             <div class="post-pie uk-flex">
-                                <h5 class="uk-width-1-6"><a href="/detalle-usuario"><%= posts[i].username %></a></h5>
-                                <p class="uk-width-5-6 pieDeFoto"><%= posts[i].pie_de_foto %></p>
+                                <h5 class="uk-width-1-6"><a href="/detalleUsuario"><%= posts[i].nombre %></a></h5>
+                                <p class="uk-width-5-6 pieDeFoto"><%= posts[i].pieFoto %></p>
                             </div>
 
                         </div>
@@ -49,15 +49,14 @@
                         <div class="post-comentarios">
                             <h6>Comentarios:</h6>
                             <ul>
-                                <li>
-                                    <a href="/detalleUsuario"><%= posts[i].Usuario.nombre %></a>
+                                <% for( let j = 0; j < posts[i].comentarios.length; j++ ) { %>
+                                    <li>
+                                        <a href="/detail/user/id/<%= posts[i].id %>"> <%= posts[i].comentarios[j].usuarios.nombre %> </a>
+                                        <p><%= posts[i].comentarios[j].Comentario %></p>
+                                    </li>
                                     
-                                </li>
-                                <li>
-                                    <a href="detalleUsuario"><%= posts[i].Usuario.nombre %></a>
-                                   
-                                </li>
-                                <a href="">Ver más...</a>
+                                    <% } %>
+                                
                             </ul>
                             
                         </div>

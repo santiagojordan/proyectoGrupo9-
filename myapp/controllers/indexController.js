@@ -19,6 +19,7 @@ const indexController = {
                     posts: posts,
 
                 })
+                
             
             })
     }
