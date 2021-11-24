@@ -1,7 +1,7 @@
 footer{
-    height: 40px;
+    height: 60px;
     color: white;
-    padding: 0 10px;
+    padding: 0 30px;
 }
 
 footer ul{
@@ -9,5 +9,9 @@ footer ul{
 }
 
 footer ul li{
-    margin-top: 0;
+    margin: 10px;
+}
+
+.fondoFooter{
+    background-color: black;
 }
