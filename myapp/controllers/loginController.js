@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 
 
 
-const controller = {
+const loginController = {
     index: (req, res) => {
         if (!req.session.usuario) {
             res.render('login', {
@@ -60,4 +60,4 @@ const controller = {
         res.redirect("/login")
     }
 }
-module.exports = controller;
+module.exports = loginController;

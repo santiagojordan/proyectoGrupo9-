@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var usersController = require('../controllers/usersController');
-var registracionController = require('../controllers/registracionController');
+var loginController = require('../controllers/loginController');
 
 
-router.get('/login', usersController.mostrarLogin);
-router.post('/login', usersController.autenticarUsuario)
-router.get('/logout', usersController.logout)
+
+router.get('/', loginController.login);
+router.post('/', loginController.login)
+//router.get('/logout', usersController.logout)
 
 
 
