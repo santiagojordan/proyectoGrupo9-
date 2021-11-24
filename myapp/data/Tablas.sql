@@ -36,22 +36,22 @@ FOREIGN KEY (idUsuario) REFERENCES usuarios (id),
 FOREIGN KEY (idPost) REFERENCES posteos (id)
 );
 
-INSERT INTO usuarios VALUES(default, "Ana", "Folmer", "anafolmer@gmail.com", "1265", "", "2021-08-30", 343620957);
-INSERT INTO usuarios VALUES(default, "Mauro", "Silva", "maurosilva@gmail.com", "2303", "", "2021-09-01", 343487109);
-INSERT INTO usuarios VALUES(default, "Martín", "Schmidt", "martinschmidt@gmail.com", "4537", "", "2021-09-05", 343290716);
-INSERT INTO usuarios VALUES(default, "Carolina", "Lell", "carolinalell@gmail.com", "1117", "", "2021-08-31", 343265487);
-INSERT INTO usuarios VALUES(default, "Muriel", "Gorostiaga", "murielgorostiaga@gmail.com", "0456", "", "2021-09-10", 343653448);
+INSERT INTO usuarios VALUES(default, "Ana", "Folmer", "anafolmer@gmail.com", "1265", "fmujer.jpg", "2021-08-30", 343620957);
+INSERT INTO usuarios VALUES(default, "Mauro", "Silva", "maurosilva@gmail.com", "2303", "fhombre.jpg", "2021-09-01", 343487109);
+INSERT INTO usuarios VALUES(default, "Martín", "Schmidt", "martinschmidt@gmail.com", "4537", "hombre.jpg", "2021-09-05", 343290716);
+INSERT INTO usuarios VALUES(default, "Carolina", "Lell", "carolinalell@gmail.com", "1117", "Fotomujer.jpg", "2021-08-31", 343265487);
+INSERT INTO usuarios VALUES(default, "Muriel", "Gorostiaga", "murielgorostiaga@gmail.com", "0456", "mujer.jpg", "2021-09-10", 343653448);
 
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-09-01 15:39:26", "", "1");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-09-14 18:19:59", "", "4");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-08-31 22:49:16", "", "4");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-09-15 21:03:56", "", "3");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-09-02 10:12:33", "", "2");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-08-31 09:23:20", "", "1");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-09-09 23:19:55", "", "3");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-09-11 11:45:48", "", "5");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-09-15 20:19:11", "", "2");
-INSERT INTO posteos VALUES(default, "Pie de foto", "2021-09-17 13:12:09", "", "5");
+INSERT INTO posteos VALUES(default, "El modelo mas exclusivo de Audi.", "2021-09-01 15:39:26", "audiR8.jpeg", "1");
+INSERT INTO posteos VALUES(default, "Lujo sobre ruedas.", "2021-09-14 18:19:59", "BentleyBentayga.jpeg", "4");
+INSERT INTO posteos VALUES(default, "Excelente auto en todo aspecto.", "2021-08-31 22:49:16", "audiA4.jpeg", "4");
+INSERT INTO posteos VALUES(default, "Deportividad y confort en su maxima expresion.", "2021-09-15 21:03:56", "bmwSerie4.jpeg", "3");
+INSERT INTO posteos VALUES(default, "El SUV mas rapido del mundo.", "2021-09-02 10:12:33", "lamborghiniUrus.jpeg", "2");
+INSERT INTO posteos VALUES(default, "Este auto marco el record mundial de 0 a 100km/h.", "2021-08-31 09:23:20", "porsche911TurboS.jpeg", "1");
+INSERT INTO posteos VALUES(default, "Es la camioneta ideal!", "2021-09-09 23:19:55", "porscheCayenne.jpeg", "3");
+INSERT INTO posteos VALUES(default, "Orientada para la gente con una vida activa.", "2021-09-11 11:45:48", "ramTrx.jpeg", "5");
+INSERT INTO posteos VALUES(default, "El futuro es ahora.", "2021-09-15 20:19:11", "teslaModelX.jpeg", "2");
+INSERT INTO posteos VALUES(default, "El mejor producto de Toyota.", "2021-09-17 13:12:09", "toyotaSw4.jpeg", "5");
 
 INSERT INTO comentarios VALUES(default, "2", "8", "Que lindo auto!", "2021-09-11 13:10:35");
 INSERT INTO comentarios VALUES(default, "5", "8", "Hola, me dicen el precio?", "2021-09-11 13:33:15");
