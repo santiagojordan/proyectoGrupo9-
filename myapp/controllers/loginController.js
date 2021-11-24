@@ -24,7 +24,7 @@ const loginController = {
                 })
                 .then(usuario => {
                     if (usuario) {
-                        if (bcrypt.compareSync(req.body.passwords, usuario.passwords)) {
+                        if (bcrypt.compareSync(req.body.passwords, usuario.passwords)) { // compareSync nos indica si la contraseña es correcta o no.
                             req.session.usuario = usuario
                             if (req.body.remember) {
                                 res.cookie('userId', usuario.id, {
