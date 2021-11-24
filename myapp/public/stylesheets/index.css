@@ -1,7 +1,7 @@
 article.post{
-    border: 1px solid lightgray;
+    border: 1px solid black;
     border-radius: 10px;
-    margin-bottom: 10px;
+    margin: 20px;
 }
 
 article.post div.info-usuario{
@@ -9,22 +9,27 @@ article.post div.info-usuario{
     border-bottom: 1px solid lightgray;
     margin-bottom: 5px;
 }
+
 article.post div.info-usuario img{
     border-radius: 50px;
     padding: 1px;
     border: 1.5px solid red;
 }
+
 article.post div.info-usuario h4{
    margin: 8px 10px;
+   text-decoration: underline;
 }
 
 article.post div.post-body{
     padding-bottom: 5px;
     border-bottom: 1px solid lightgray;
 }
+
 .post-body a{
     display: inline-block;
     width: 100%;
+    height: 100%;
     text-align: center;
 }
 
@@ -32,38 +37,69 @@ article.post div.post-reacciones ul.post-icons{
     padding-top: 5px;
     padding-right: 30px;
     list-style-type: none;
+    margin-bottom: 0px;
 }
 
 article.post div.post-reacciones div.post-pie{
     padding-left: 20px;
     border-bottom: 1px solid lightgray;
 }
+
 article.post div.post-reacciones div.post-pie h5{
     margin: 0;
 }
+
 article.post div.post-reacciones div.post-pie p{
     margin: 0;
 }
+
 article.post div.post-comentarios {
     margin-top: 10px;
     margin-left: 20px;
 }
+
 article.post div.post-comentarios h6{
     margin-bottom: 0;
 }
+
 article.post div.post-comentarios ul{
     list-style: none;
     margin-top: 5px
 }
+
 article.post div.post-comentarios ul li{
     display: flex;
 }
+
 article.post div.post-comentarios ul li a{
     color: black;
     font-weight: bolder;
     text-decoration: none;
 }
+
 article.post div.post-comentarios ul li p{
     margin: 0 5px;
 }
 
+.fotoPerfil{
+    height: 10%;
+    width: 10%;
+}
+
+.pieDeFoto{
+    font-size: 18px;
+    text-align: left;
+    color: #666;
+    font-style: italic;
+}
+
+h6{
+    color: black;
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+h4 a{
+    color: black;
+    font-weight: bold;
+}
