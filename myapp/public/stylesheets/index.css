@@ -88,18 +88,44 @@ article.post div.post-comentarios ul li p{
 
 .pieDeFoto{
     font-size: 18px;
-    text-align: left;
-    color: #666;
+    text-align: center;
+    color: #224A59;
     font-style: italic;
+   
+    margin: 0;
+    font-family: 'Cabin', sans-serif;
+    
+
 }
 
 h6{
     color: black;
     text-decoration: underline;
     font-size: 15px;
+    font-weight: bold;
 }
 
 h4 a{
     color: black;
     font-weight: bold;
+}
+
+.nombreComentario{
+    color: black;
+    font-style: italic;
+    list-style-type: none;
+    font-weight: bold;
+}
+
+.comentario{
+    margin-top: 0px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.iconos{
+    padding-left: 20px;
+    border-bottom: 1px solid lightgray;
 }

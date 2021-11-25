@@ -15,9 +15,10 @@ const registracionController = {
 	registrar: function (req, res) {
 	 req.body.password = bcrypt.hashSync(req.body.password)
 		const usuarioCreado ={ 
+			nombre:req.body.nombre,
 			email:req.body.email,
-			telefono:req.body.telefono,
 			password:req.body.password,
+			fecha:req.body.fecha,
 		} 
 		db.usuario.create (usuarioCreado)
 		.then (function (usuario){

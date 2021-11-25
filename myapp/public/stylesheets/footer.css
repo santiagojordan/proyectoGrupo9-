@@ -15,3 +15,8 @@ footer ul li{
 .fondoFooter{
     background-color: black;
 }
+
+.nombreIntegrante{
+    margin-left: 300px;
+    font-family: monospace;
+}

@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="post-reacciones">
-                            <ul class="post-icons uk-flex uk-flex-between">
+                            <ul class="post-icons uk-flex uk-flex-between iconos">
                                 <li><span class="" uk-icon="icon:heart; ratio: 1.3"></span>
                                 </li>
                                 <li><span class="" uk-icon="icon:comments; ratio: 1.3"></span>
@@ -41,23 +41,23 @@
 
                             <div class="post-pie uk-flex">
                                 <h5 class="uk-width-1-6"><a href="/detalleUsuario"><%= posts[i].nombre %></a></h5>
-                                <p class="uk-width-5-6 pieDeFoto"><%= posts[i].pieFoto %></p>
+                                <p class="pieDeFoto"><%= posts[i].pieFoto %></p>
                             </div>
 
                         </div>
                        
                         <div class="post-comentarios">
-                            <h6>Comentarios:</h6>
-                            <ul>
-                                <% for( let j = 0; j < posts[i].comentarios.length; j++ ) { %>
-                                    <li>
-                                        <a href="/detail/user/id/<%= posts[i].id %>"> <%= posts[i].comentarios[j].usuarios.nombre %> </a>
-                                        <p><%= posts[i].comentarios[j].Comentario %></p>
-                                    </li>
-                                    
-                                    <% } %>
-                                
-                            </ul>
+                    
+                            <h6>Comentarios: <%= posts[i].comentarios.length %></h6>
+                            
+                            <% for( let j = 0; j < posts[i].comentarios.length; j++ ) { %>
+                                <li>
+                                    <a class="nombreComentario" href="/detail/user/id/<%= posts[i].id %>"> <%= posts[i].comentarios[j].usuarios.nombre %>: </a>
+                                    <p class="comentario"><%= posts[i].comentarios[j].Comentario %></p>
+                                </li>
+                               
+                            <% } %>
+
                             
                         </div>
                     
