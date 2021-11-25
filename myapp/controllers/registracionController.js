@@ -1,7 +1,6 @@
-const posts = require('../data/posteos');
-const users = require('../data/usuarios');
-let db = require('../database/models'); // Relaciona el controlador con los modelos
-let bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
+const db = require('../database/models');
+const Usuario = db.Usuario;
 
 
 
@@ -11,7 +10,7 @@ const registracionController = {
 		res.render('registracion')
 	},
 	
-	// Funcion de como se registra un usuario
+	// Funcion de como se registra un nuevo usuario
 	registrar: function (req, res) {
 	 req.body.password = bcrypt.hashSync(req.body.password)
 		const usuarioCreado ={ 
@@ -20,8 +19,8 @@ const registracionController = {
 			password:req.body.password,
 			fecha:req.body.fecha,
 		} 
-		db.usuario.create (usuarioCreado)
-		.then (function (usuario){
+		db.Usuario.create (usuarioCreado)
+		.then (function (Usuario){
 			return res.redirect ("/login")
 		}
 			)

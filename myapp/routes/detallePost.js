@@ -1,5 +1,5 @@
 var express = require('express');
-const posteosController = require('../controllers/posteosController');
+const detalleController = require('../controllers/detalleController');
 var router = express.Router();
 const multer = require('multer');
 const path = require('path');
@@ -18,11 +18,10 @@ const upload = multer({
 })
 
 
-router.get('/:id', posteosController.detallePost);
-router.get('/modificar/:id', posteosController.vistaModificarPosteo);
+router.get('/:id', detalleController.detallePost);
 
-router.post('/:id', posteosController.nuevoComentario);
-router.post('/eliminar/:id', posteosController.eliminarPosteo);
-router.post('/modificar/:id', upload.single('nuevaImagen'), posteosController.modificarPosteo);
+router.post('/:id', detalleController.nuevoComentario);
+
+
 
 module.exports = router;

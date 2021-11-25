@@ -1,13 +1,13 @@
 const db = require('../database/models'); 
 const Op = db.Sequelize.Op;
 
-const detailController = {
+const detalleController = {
     index: (req, res) => { 
         db.User.findAll({
             include: [{
-                association: 'posteosU'
+                association: 'posts'
             }, {
-                association: 'comentariosU'
+                association: 'comentarios'
             }],
             
 
@@ -68,4 +68,4 @@ const detailController = {
     }
 }
 
-module.exports = detailController
+module.exports = detalleController

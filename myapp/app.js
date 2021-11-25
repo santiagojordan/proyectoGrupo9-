@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var registracionRouter = require('./routes/registracion');
 var loginRouter = require('./routes/login');
+//var detallePostRouter = require('./routes/detallePost');
 
 var app = express();
 
@@ -22,12 +23,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: "Shh, es un secreto!"}))
+app.use(session({
+  secret: "Shh, es un secreto!",
+  resave: true,
+  saveUninitialized: false,
+}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/registracion', registracionRouter);
 app.use('/login', loginRouter)
+//app.use('/detallePost', detallePostRouter)
 
 
 // catch 404 and forward to error handler
