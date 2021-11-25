@@ -5,8 +5,11 @@ var loginController = require('../controllers/loginController');
 
 
 router.get('/', loginController.login);
+router.get('/', loginController.logout);
+
 router.post('/', loginController.login)
-//router.get('/logout', usersController.logout)
+router.post('/', loginController.logout);
+
 
 
 

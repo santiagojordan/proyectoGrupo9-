@@ -22,6 +22,11 @@ header nav ul li a{
     text-decoration: underline;
 }
 
+.barraNav{
+    color: white;
+    text-decoration: underline;
+}
+
 header nav ul li a:hover,
 header a:hover{
     color: lightsteelblue;
